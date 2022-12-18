@@ -1,4 +1,7 @@
 .idea/
 vendor/
 views/
+public/
 testdox.txt
+.phpunit.result.cache
+phpunit.xml
