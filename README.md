@@ -31,7 +31,7 @@ use ArveresRoute\Http\Router;
 $router = new Router;
 
 //Rota básica GET
-$router->get('/', [UserController::class, 'index']);
+$router->get('/', [HomeController::class, 'index']);
 
 //Rota básica POST
 $router->post('/user/register', [UserController::class, 'store']);
@@ -70,7 +70,8 @@ class UserController
     // Por fim possuem uma instância de Request
     public function show($id, Request $request)
     {
-        var_dump('hello World show');
+        UserModel::findBy($id):
+        /...
     }
 }
 ```
