@@ -42,7 +42,7 @@ $router->get('/user/{id}', [UserController::class, 'show']);
 // Rotas com middlewares
 // Middlewares passado como array no terceiro parâmetro.
 // O nome do middleware passado como parâmetro deve estar registrado com a classe Queue
-$router->get('/list', [HomeController::class, 'list'], ['maintenance']);
+$router->get('/list', [HomeController::class, 'list'], ['stringTrim']);
 
 // Executa as rotas
 $router->run();
@@ -95,7 +95,6 @@ Queue::routeMiddleware([
 // Define middleware padrão para todas as rotas
 Queue::middlewareDefault([
     'maintenance',
-    'stringTrim'
 ]);
 ```
 ## Exemplo middleware
