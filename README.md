@@ -70,7 +70,8 @@ class UserController
     // Por fim possuem uma instância de Request
     public function show($id, Request $request)
     {
-        var_dump('hello World show');
+        User::findBy($id):
+        /...
     }
 }
 ```
