@@ -40,7 +40,7 @@ $router->post('/user/register', [UserController::class, 'store']);
 $router->get('/user/{id}', [UserController::class, 'show']);
 
 // Rotas com middlewares
-//Middlewares passado como array no terceiro parâmetro.
+// Middlewares passado como array no terceiro parâmetro.
 // O nome do middleware passado como parâmetro deve estar registrado com a classe Queue
 $router->get('/list', [HomeController::class, 'list'], ['maintenance']);
 
