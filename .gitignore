@@ -1,15 +1,12 @@
 .idea/
 vendor/
-<<<<<<< HEAD
 views/
 public/
 testdox.txt
 .phpunit.result.cache
 phpunit.xml
-=======
 config/
 routes/
 src/Http/kernel.php
 src/Http/Middlewares/Maintenance.php
 src/Http/Middlewares/TrimString.php
->>>>>>> developer
