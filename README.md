@@ -31,7 +31,7 @@ use ArveresRoute\Http\Router;
 $router = new Router;
 
 //Rota básica GET
-$router->get('/', [UserController::class, 'index']);
+$router->get('/', [HomeController::class, 'index']);
 
 //Rota básica POST
 $router->post('/user/register', [UserController::class, 'store']);
