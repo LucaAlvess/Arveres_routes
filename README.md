@@ -6,7 +6,7 @@
 
 Para instalar **Arveres routes**, você pode utilizar o comando composer diretamente
 em seu terminal:
-```
+```shell
 $ composer require arveres/route
 ```
 Ou você pode adicionar a seguinte linha em seu arquivo `composer.json`.
@@ -19,7 +19,7 @@ Ou você pode adicionar a seguinte linha em seu arquivo `composer.json`.
 }
 ```
 Em seguida, execute o comando:
-```
+```shell
 $ composer install
 ```
 ## Exemplo de uso:
