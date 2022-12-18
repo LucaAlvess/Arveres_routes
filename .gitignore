@@ -1,2 +1,7 @@
 .idea/
 vendor/
+config/
+routes/
+src/Http/kernel.php
+src/Http/Middlewares/Maintenance.php
+src/Http/Middlewares/TrimString.php
