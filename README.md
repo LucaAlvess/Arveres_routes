@@ -70,7 +70,7 @@ class UserController
     // Por fim possuem uma instância de Request
     public function show($id, Request $request)
     {
-        User::findBy($id):
+        UserModel::findBy($id):
         /...
     }
 }
