@@ -9,7 +9,10 @@
     "autoload": {
         "psr-4": {
             "ArveresRoute\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
     },
     "authors": [
         {
