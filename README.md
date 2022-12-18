@@ -14,7 +14,7 @@ Ou você pode adicionar a seguinte linha em seu arquivo `composer.json`.
 ```
 {
     "require": {
-        "arveres/route": "^1.0"
+        "arveres/route": "^1.1"
     }
 }
 ```
