@@ -2,6 +2,7 @@
 
 namespace ArveresRoute\Http;
 
+use ArveresRoute\Http\Middlewares\Queue;
 use Exception;
 
 class Router
@@ -17,32 +18,29 @@ class Router
         $this->request = new Request();
     }
 
-    public function get(string $uri, array $action): self
+    public function get(string $uri, array $action, array $middleware = []): void
     {
-        $this->addRoute('GET', $uri, $action);
-
-        return $this;
+        $this->addRoute('GET', $uri, $action, $middleware);
     }
 
-    public function post(string $uri, array $action): self
+    public function post(string $uri, array $action, array $middleware = []): void
     {
-        $this->addRoute('POST', $uri, $action);
-
-        return $this;
+        $this->addRoute('POST', $uri, $action, $middleware);
     }
 
     public function run(): mixed
     {
         $currentRoute = $this->getActionCurrentRoute();
 
-        $controller = new $currentRoute['controller'];
+        $controller = $currentRoute['controller'];
         $method = $currentRoute['method'];
         $params = $currentRoute['params'];
+        $middleware = $currentRoute['middleware'];
 
-        return forward_static_call_array([$controller, $method], $params);
+        return (new Queue($controller, $method, $params, $middleware))->next($this->request);
     }
 
-    private function addRoute(string $httpMethod, string $uri, array $action): void
+    private function addRoute(string $httpMethod, string $uri, array $action, array $middleware): void
     {
         [$controller, $method] = $action;
         $uri = rtrim($uri, '/');
@@ -56,7 +54,8 @@ class Router
         $this->routes[$uri][$httpMethod] = [
             'controller' => $controller,
             'method' => $method,
-            'params' => $params ?? []
+            'params' => $params ?? [],
+            'middleware' => $middleware
         ];
     }
 
